@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Result = ({id,login,avatar_url,name,bio,public_respos,followers,following,location}) => {
+const Result = ({id,login,email,twitter_username,avatar_url,name,bio,public_repos,followers,following,location}) => {
   return (
     <div className='w-[490px] h-[540px] backdrop-blur-lg rounded-2xl bg-white bg-opacity-70 border border-black'>
        <div className='flex flex-row items-center'>       
@@ -13,18 +13,22 @@ const Result = ({id,login,avatar_url,name,bio,public_respos,followers,following,
         <div className=' font-semibold text-xl p-2'>
             <p>{bio}</p>
         </div>
-        <div className=' justify-between flex flex-row p-2 m-2 bg-purple-950 text-white rounded-xl h-28'>
-        <div >
-            <h1 className='p-1 m-1   flex '>Repos</h1>
-            <h1>{public_respos}</h1>
+        <div className='text-xl justify-between flex flex-row p-2 m-2 bg-purple-950 text-white rounded-xl h-28'>
+        <div className='p-1 m-2 flex flex-col' >
+            <h1 className=' '>Repos</h1>
+            <h1>{public_repos}</h1>
         </div>
-        <div className='flex'>
+        <div className='flex flex-col p-1 m-2 items-center'>
             <h1>Followers</h1>
-            <h1>{followers}</h1>
+            <h1 className=''>{followers}</h1>
+        </div>
+        <div className='flex flex-col p-1 m-2 items-center'>
+            <h1>Following</h1>
+            <h1>{following}</h1>
+        </div>
         </div>
         <div>
-            <h1>Following</h1>
-        </div>
+            <h1>{location}</h1>
         </div>
     </div>
   )
