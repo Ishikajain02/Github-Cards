@@ -1,4 +1,7 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faLocationDot } from '@fortawesome/free-solid-svg-icons'; 
+
 
 const Result = ({id,login,email,twitter_username,avatar_url,name,bio,public_repos,followers,following,location}) => {
   return (
@@ -27,8 +30,9 @@ const Result = ({id,login,email,twitter_username,avatar_url,name,bio,public_repo
             <h1>{following}</h1>
         </div>
         </div>
-        <div>
-            <h1>{location}</h1>
+        <div className='flex items-center justify-center'>
+        <FontAwesomeIcon className = "h-8 p-1"icon={faLocationDot} />
+            <h1 className='h-8 text-xl p-2 font-bold'>{location}</h1>
         </div>
     </div>
   )
