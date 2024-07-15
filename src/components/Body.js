@@ -6,7 +6,7 @@ import {faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import Result from './Result';
 import NotExist from './NotExist';
 const Body = () => {
-    const [text,settext]=useState([]);
+    const [text,settext]=useState("ishikajain02");
     const [err,seterr]=useState(null);
     const [response,setresponse]=useState([]);
     async function textgeneration(){
@@ -31,9 +31,9 @@ const Body = () => {
       setresponse(null);
     }
     }
-    {/*useEffect(()=>{
-  d     textgeneration();
-    },[text]);*/}
+    useEffect(()=>{
+     textgeneration();
+    },[]);
     
     
     return (
@@ -42,7 +42,7 @@ const Body = () => {
     <div className='flex flex-row w-96 rounded-xl text-2xl font-bold items-center justify-center  h-20 backdrop-blur-lg bg-opacity-70 bg-white '>
     <FontAwesomeIcon icon={faMagnifyingGlass} />
     
-    <input className=' flex flex-col w-60 bg-transparent outline-none h-14 p-2' onChange={(e) => settext(e.target.value)} ></input>
+    <input className=' flex flex-col w-60 bg-transparent outline-none h-14 p-2 text-black' placeholder={text} onChange={(e) => settext(e.target.value)} ></input>
     <button className='border border-black bg-purple-800 text-white h-14 w-24 rounded-2xl' onClick={textgeneration}>Press</button>
     </div>
     <div className='p-8'>
