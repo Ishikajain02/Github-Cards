@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faLocationDot } from '@fortawesome/free-solid-svg-icons'; 
+import {faLocationDot,faEnvelope ,faLink } from '@fortawesome/free-solid-svg-icons'; 
+import {faTwitter} from '@fortawesome/free-brands-svg-icons';
+import NotExist from './NotExist';
 
-
-const Result = ({id,login,email,twitter_username,avatar_url,name,bio,public_repos,followers,following,location}) => {
-  return (
+const Result = ({id,login,email,twitter_username,avatar_url,name,bio,public_repos,followers,following,location,blog}) => {
+  
+   return    (
     <div className='w-[490px] h-[540px] backdrop-blur-lg rounded-2xl bg-white bg-opacity-70 border border-black'>
        <div className='flex flex-row items-center'>       
        <img className='rounded-full border border-black w-[11rem] h-15 p-2 m-2' src={avatar_url}></img>
@@ -31,8 +33,16 @@ const Result = ({id,login,email,twitter_username,avatar_url,name,bio,public_repo
         </div>
         </div>
         <div className='flex items-center justify-center'>
-        <FontAwesomeIcon className = "h-8 p-1"icon={faLocationDot} />
-            <h1 className='h-8 text-xl p-2 font-bold'>{location}</h1>
+        <FontAwesomeIcon className = "h-6 p-1"icon={faLocationDot} />
+            <h1 className='h-8 text-xl p-2 font-bold'>{location? location :'Not Found'}</h1>
+           <FontAwesomeIcon icon={faTwitter} />
+            <h1 className='h-8 text-xl p-2 font-bold'>{twitter_username? twitter_username:'Not Found'}</h1>
+        </div>
+        <div className='flex items-center justify-center'>
+        <FontAwesomeIcon icon={faEnvelope} />
+        <h1 className='h-8 text-l p-2 font-bold'>{email ? email : 'Not Found'}</h1>
+        <FontAwesomeIcon icon={faLink} />
+        <h1 className='h-8 text-l p-2 font-bold'>{blog? blog : 'Not Found'}</h1>
         </div>
     </div>
   )
